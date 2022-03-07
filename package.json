@@ -7,7 +7,7 @@
     "build": "next build",
     "export": "next export",
     "build2": "next build && next export",
-    "start": "next start"
+    "start": "next start -p $PORT"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.3",
