@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, componentDidMount } from 'react';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
@@ -15,7 +15,19 @@ import '../styles/globals.css'
 import lightTheme from '../theme/light';
 import darkTheme from '../theme/dark';
 
+import ReactGA from 'react-ga';
+
 function MyApp({ Component, pageProps }) {
+  // componentDidMount( () => {
+  //   ReactGA.initialize(`G-G9KYFJHW21`);
+  //   ReactGA.pageview(window.location.pathname + window.location.search);
+  // });
+
+  useEffect(() => {
+    ReactGA.initialize(`G-G9KYFJHW21`);
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
+
   const [ themeConfig, setThemeConfig ] = useState(lightTheme);
 
   const changeTheme = (dark) => {
