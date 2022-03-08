@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Script from 'next/script';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
@@ -14,10 +15,6 @@ import '../styles/globals.css'
 
 import lightTheme from '../theme/light';
 import darkTheme from '../theme/dark';
-
-import ReactGA from 'react-ga';
-
-ReactGA.initialize(`G-G9KYFJHW21`);
 
 function MyApp({ Component, pageProps }) {
   const [ themeConfig, setThemeConfig ] = useState(lightTheme);
@@ -35,16 +32,35 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   useEffect(function() {
-    ReactGA.pageview(window.location.pathname + window.location.search);
     stores.dispatcher.dispatch({ type: CONFIGURE })
   },[]);
 
   return (
+  <>
+    <Script
+      strategy="afterInteractive"
+      src={`https://www.googletagmanager.com/gtag/js?id=G-G9KYFJHW21`}
+      />
+    <Script
+      id="gtag-init"
+      strategy="afterInteractive"
+      dangerouslySetInnerHTML={{
+        __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-G9KYFJHW21', {
+            page_path: window.location.pathname,
+          });
+        `,
+      }}
+    />
     <ThemeProvider theme={ themeConfig }>
       <CssBaseline />
       <Component {...pageProps} changeTheme={ changeTheme } />
       <SnackbarController />
     </ThemeProvider>
+  </>
   )
 }
 

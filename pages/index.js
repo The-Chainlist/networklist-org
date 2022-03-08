@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Script from 'next/script'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import styles from '../styles/Home.module.css'
@@ -126,6 +127,25 @@ function Home({ changeTheme, theme }) {
       <Head>
         <title>Chainlist</title>
         <link rel="icon" href="/favicon.png" />
+        {/* <Script
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=G-G9KYFJHW21`}
+        />
+        <Script
+          id="gtag-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-G9KYFJHW21', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
+        /> */}
+
       </Head>
 
       <main className={styles.main}>
