@@ -15,6 +15,8 @@ import '../styles/globals.css'
 
 import lightTheme from '../theme/light';
 import darkTheme from '../theme/dark';
+import { Html } from 'next/document';
+import Head from 'next/head';
 
 function MyApp({ Component, pageProps }) {
   const [ themeConfig, setThemeConfig ] = useState(lightTheme);
