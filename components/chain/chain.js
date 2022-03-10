@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useMemo } from 'react';
 import { Typography, Paper, Grid, Button, Tooltip } from '@material-ui/core'
 import Skeleton from '@material-ui/lab/Skeleton';
 import { useRouter } from 'next/router'
@@ -8,6 +8,7 @@ import classes from './chain.module.css'
 
 import stores from '../../stores/index.js'
 import { getProvider } from '../../utils'
+import { icons } from "../../utils/icons";
 
 import {
   ERROR,
@@ -88,6 +89,10 @@ export default function Chain({ chain }) {
     }
 
   }
+  const icon = useMemo(() => {
+    const chainName = chain.name.toLowerCase().split(" ")[0];
+    return (chain.icon && icons[chain.icon]) || (chainName && icons[chainName]) || "/chains/unknown-logo.png";
+  }, [chain]);
 
   if(!chain) {
     return <div></div>
@@ -97,7 +102,7 @@ export default function Chain({ chain }) {
     <Paper elevation={ 1 } className={ classes.chainContainer } key={ chain.chainId }>
       <div className={ classes.chainNameContainer }>
         <img
-          src='/connectors/icn-asd.svg'
+          src={icon}
           onError={e => {
             e.target.onerror = null;
             e.target.src = "/chains/unknown-logo.png";
