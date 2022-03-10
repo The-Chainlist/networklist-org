@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { Typography, Paper, Grid, Button, Tooltip } from '@material-ui/core'
 import Skeleton from '@material-ui/lab/Skeleton';
 import { useRouter } from 'next/router'
@@ -15,6 +16,8 @@ import {
   TRY_CONNECT_WALLET,
   ACCOUNT_CONFIGURED
 } from '../../stores/constants'
+
+import InfoIcon from '@material-ui/icons/Info';
 
 export default function Chain({ chain }) {
   const router = useRouter()
@@ -108,6 +111,15 @@ export default function Chain({ chain }) {
         />
         <Tooltip title={ chain.name }>
           <Typography variant='h3' className={ classes.name } noWrap>
+          {chain.chain === 'ETH' ? // change this line to show chain info pages
+            <Link href={chain.chain.toLowerCase()}>
+              <InfoIcon style={{
+                fontSize:'0.8em',
+                color:'#848484',
+                cursor:'pointer',
+                marginRight:'0.2em'
+              }}/>
+            </Link>:null}
             <a href={ chain.infoURL } target="_blank" rel="noreferrer">
               { chain.name }
             </a>
@@ -132,6 +144,15 @@ export default function Chain({ chain }) {
         >
           { renderProviderText() }
         </Button>
+        <Link href={chain.chain.toLowerCase()+'/testnets'}>
+          <Button
+            variant='outlined'
+            color='primary'
+            style={{marginLeft:'10px'}}
+          >
+            Testnets
+          </Button>
+        </Link>
       </div>
     </Paper>
   )

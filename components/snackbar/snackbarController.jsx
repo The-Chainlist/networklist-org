@@ -29,12 +29,12 @@ class SnackbarController extends Component {
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     emitter.on(ERROR, this.showError);
     emitter.on(TX_SUBMITTED, this.showHash);
   }
 
-  componentDidUnmount() {
+  componentWillMount() {
     emitter.removeListener(ERROR, this.showError);
     emitter.removeListener(TX_SUBMITTED, this.showHash);
   };

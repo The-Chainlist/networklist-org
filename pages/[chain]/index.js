@@ -13,7 +13,7 @@ function Chain({ changeTheme, theme }) {
     <Home changeTheme={changeTheme} theme={theme} onSearchChange={onSearchChange}>
       <span style={{display:'flex'}}>
         <Link href='/'>
-          <ArrowBackOutlinedIcon fontSize="medium" style={{ border:'0px solid black', borderRadius:'100%', backgroundColor:'#2f80ed', color: '#F3F3F3', margin:'3px 10px' }}/>
+          <ArrowBackOutlinedIcon style={{ border:'0px solid black', borderRadius:'100%', backgroundColor:'#2f80ed', color: '#F3F3F3', margin:'3px 10px', cursor:'pointer' }}/>
         </Link>
         <Typography variant='h2' className={ classes.chainListSpacing }><span className={ classes.helpingUnderline }>Ethereum</span></Typography>
       </span>
