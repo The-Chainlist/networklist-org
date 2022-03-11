@@ -2,12 +2,11 @@ import Home from '../components/home';
 import { withTheme } from '@material-ui/core/styles';
 import { ExpandMore } from '@material-ui/icons';
 import { Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
-import { useState } from 'react';
 import ArrowBackOutlinedIcon from '@material-ui/icons/ArrowBackOutlined';
 import Link from 'next/link';
 
 function Faq({ changeTheme, theme }) {
-  const [questions, setQuestions] = useState([
+  const questions= [
     {
       id:1,
       question: 'What is chainlist?',
@@ -43,7 +42,7 @@ function Faq({ changeTheme, theme }) {
       question: 'How to add Networks to Metamask using 1-click?',
       answer:'answer 3 for question 3'
     }
-  ])
+  ]
   const onSearchChange = () => {};
   return (
     <Home changeTheme={changeTheme} theme={theme} onSearchChange={onSearchChange}>
