@@ -17,7 +17,7 @@ import AddIcon from '@material-ui/icons/Add';
 import useSWR from 'swr'
 
 import classes from '../../pages/index.module.css'
-import { PinDropSharp } from '@material-ui/icons';
+import Link from 'next/link';
 
 const searchTheme = createMuiTheme({
   palette: {
@@ -127,7 +127,7 @@ function Home({ changeTheme, theme, children, onSearchChange }) {
         <div className={ theme.palette.type === 'dark' ? classes.containerDark : classes.container }>
           <div className={ classes.copyContainer }>
             <div className={ classes.copyCentered }>
-              <Typography variant='h1' className={ classes.chainListSpacing }><span className={ classes.helpingUnderline }>Chainlist</span></Typography>
+              <Link href='/'><Typography variant='h1' className={ classes.chainListSpacing }><span className={ classes.helpingUnderline } style={{ cursor:'pointer' }}>Chainlist</span></Typography></Link>
               <Typography variant='h2' className={ classes.helpingParagraph }>Helping users connect to EVM powered networks</Typography>
               <Typography className={classes.subTitle}>Chainlist is a list of EVM networks. Users can use the information to connect their wallets and Web3 middleware providers to the appropriate Chain ID and Network ID to connect to the correct chain.</Typography>
               <Button
