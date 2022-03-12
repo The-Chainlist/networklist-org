@@ -127,7 +127,7 @@ function Home({ changeTheme, theme, children, onSearchChange }) {
         <div className={ theme.palette.type === 'dark' ? classes.containerDark : classes.container }>
           <div className={ classes.copyContainer }>
             <div className={ classes.copyCentered }>
-              <Link href='/'><Typography variant='h1' className={ classes.chainListSpacing }><span className={ classes.helpingUnderline } style={{ cursor:'pointer' }}>Chainlist</span></Typography></Link>
+              <Link href='/'><Typography variant='h1' className={ classes.chainListSpacing }><span className={ classes.helpingUnderline } style={{ cursor:'pointer' }}>The Chainlist</span></Typography></Link>
               <Typography variant='h2' className={ classes.helpingParagraph }>Helping users connect to EVM powered networks</Typography>
               <Typography className={classes.subTitle}>Chainlist is a list of EVM networks. Users can use the information to connect their wallets and Web3 middleware providers to the appropriate Chain ID and Network ID to connect to the correct chain.</Typography>
               <Button
